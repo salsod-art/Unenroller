@@ -4,8 +4,9 @@ import requests
 import os
 import device_management_backend_pb2 as proto
 
-serial_number = input("serial number: ").strip()
-oauth_code = input("oauth code: ").strip()
+# Read values supplied by GitHub Actions
+serial_number = os.environ["SERIAL_NUMBER"].strip()
+oauth_code = os.environ["OAUTH_CODE"].strip()
 
 response = requests.post(
     "https://www.googleapis.com/oauth2/v4/token",
